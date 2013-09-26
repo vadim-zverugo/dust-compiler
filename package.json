@@ -1,0 +1,23 @@
+{
+    "name": "opencare-duster",
+    "version": "1.0",
+    "description": "Dust templates compiler.",
+    "license": "MIT",
+    "author": {
+        "name": "Vadim Zverugo",
+        "email": "vadim@healthaware.ca"
+    },
+    "keywords": [
+        "opencare",
+        "dust"
+    ],
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://vadim-zverugo@bitbucket.org/vadim-zverugo/opencare-duster.git"
+    },
+    "dependencies": {
+        "dustjs-linkedin": "*",
+        "watch": "*"
+    }
+}

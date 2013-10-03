@@ -1,6 +1,6 @@
 {
     "name": "opencare-duster",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Dust templates compiler.",
     "license": "MIT",
     "author": {

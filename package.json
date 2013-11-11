@@ -1,20 +1,21 @@
 {
-    "name": "opencare-duster",
-    "version": "0.0.4",
-    "description": "Dust templates compiler.",
+    "name": "dust-compiler",
+    "version": "0.0.5",
+    "description": "Node.js module for compiling dust templates.",
     "license": "MIT",
     "author": {
         "name": "Vadim Zverugo",
-        "email": "vadim@healthaware.ca"
+        "email": "vadim.zverugo@gmail.com"
     },
     "keywords": [
-        "opencare",
-        "dust"
+        "dust",
+        "template",
+        "compile"
     ],
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://vadim-zverugo@bitbucket.org/vadim-zverugo/opencare-duster.git"
+        "url": "https://github.com/vadim-zverugo/dust-compiler.git"
     },
     "dependencies": {
         "dustjs-linkedin": "*",

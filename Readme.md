@@ -1,3 +1,3 @@
 ## Dust templates compiler
 
-Duster is used to compile dust templates.
+Node.js module that is used to compile dust templates.

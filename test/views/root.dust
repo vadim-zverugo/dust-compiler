@@ -1,0 +1,9 @@
+<div>
+    <div>
+        <p>Test template for the dust compiler!</p>
+        <p>Hello {username}</p>
+    </div>
+    <div>
+        {>"./child/child.dust"/}
+    </div>
+</div>

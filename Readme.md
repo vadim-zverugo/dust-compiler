@@ -6,7 +6,7 @@ Node.js module that is used to compile *.dust templates.
 Installation
 ------------
 
-Add the following dependency into your package.json:
+Add the following dependency into your `package.json`:
 
     "dust-compiler": "git+https://github.com/vadim-zverugo/dust-compiler.git"
 
@@ -25,19 +25,19 @@ Usage
 Options
 -----
 
-* __sourceDir__ - ...
-* __compiledDir__ - ...
-* __logger__ - ...
-* __syncCompilation__ - ...
-* __preProcessors__ - ...
-* __watchFiles__ - ...
-* __subDirSeparator__ - ...
-* __compileAll__ - ...
-* __compiledAllFilename__ - ...
+* `sourceDir` (required):
+* `compiledDir` (required):
+* `logger` (optional, defaults to `console`):
+* `syncCompilation` (optional, defaults to `false`):
+* `preProcessors` (optional, defaults to `[]`):
+* `watchFiles` (optional, defaults to `true`):
+* `subDirSeparator` (optional, defaults to `__`):
+* `compileAll` (optional, defaults to `false`):
+* `compiledAllFilename` (optional, defaults to `all`):
 
 Tests
 -----
 
-Open test directory and launch nodeunit:
+Open `test` directory and launch `nodeunit`:
 
     nodeunit compilerTest.js

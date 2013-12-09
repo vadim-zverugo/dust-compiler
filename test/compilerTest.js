@@ -103,7 +103,7 @@ module.exports = {
             "(function(){dust.register(\"root\",body_0);function body_0(chk,ctx)" +
             "{return chk.write(\"<div><div><p>Test template for the dust compiler!</p><p>Hello \")" +
             ".reference(ctx._get(false, [\"username\"]),ctx,\"h\").write(\"</p></div><div>\")" +
-            ".partial(\"./child/child.dust\",ctx,null).write(\"</div></div>\");}return body_0;})();");
+            ".partial(\"./child/child.dust\",ctx,null).write(\"</div></div>\");}return body_0;})();\n");
 
         test.done();
     }

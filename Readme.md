@@ -29,6 +29,7 @@ Options
 * `compiledDir` (required):
 * `logger` (optional, defaults to `console`):
 * `syncCompilation` (optional, defaults to `false`):
+* `clearCompiled` (optional, defaults to `true`):
 * `preProcessors` (optional, defaults to `[]`):
 * `postProcessors` (optional, defaults to `[]`):
 * `watchFiles` (optional, defaults to `true`):

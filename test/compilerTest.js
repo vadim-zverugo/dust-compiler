@@ -4,28 +4,6 @@ var dustCompiler = require('../lib/duster'),
     cwd = process.cwd();
 
 module.exports = {
-    setUp: function(callback) {
-        var rmdirRecursive = function (dir) {
-            var files = [];
-            if (fs.existsSync(dir)) {
-                files = fs.readdirSync(dir);
-                files.forEach(function (file, index) {
-                    var filePath = path.join(dir, file);
-                    if (fs.statSync(filePath).isDirectory()) {
-                        rmdirRecursive(filePath);
-                    } else {
-                        fs.unlinkSync(filePath);
-                    }
-                });
-                fs.rmdirSync(dir);
-            }
-        };
-        var compiledDir = path.join(cwd, 'compiled');
-        rmdirRecursive(compiledDir);
-
-        callback();
-    },
-
     testCompiler: function (test) {
         dustCompiler.init({
             sourceDir: '/views',
@@ -41,7 +19,7 @@ module.exports = {
             ".partial(\"./child/child.dust\",ctx,null).write(\"</div></div>\");}return body_0;})();");
 
         var childContent = fs.readFileSync(path.join(cwd, 'compiled', 'child', 'child.js'));
-        test.equals(childContent, "(function(){dust.register(\"child__child\",body_0);function body_0(chk,ctx)" +
+        test.equal(childContent, "(function(){dust.register(\"child__child\",body_0);function body_0(chk,ctx)" +
             "{return chk.write(\"<div><p>Duster</p></div>\");}return body_0;})();");
 
         test.done();
@@ -81,7 +59,7 @@ module.exports = {
         });
 
         var childContent = fs.readFileSync(path.join(cwd, 'compiled', 'child', 'child.js'));
-        test.equals(childContent, "(function(){dust.register(\"child---child\",body_0);function body_0(chk,ctx)" +
+        test.equal(childContent, "(function(){dust.register(\"child---child\",body_0);function body_0(chk,ctx)" +
             "{return chk.write(\"<div><p>Duster</p></div>\");}return body_0;})();");
 
         test.done();
@@ -98,7 +76,7 @@ module.exports = {
         });
 
         var commonContent = fs.readFileSync(path.join(cwd, 'compiled', 'common.js'));
-        test.equals(commonContent, "(function(){dust.register(\"child__child\",body_0);function body_0(chk,ctx)" +
+        test.equal(commonContent, "(function(){dust.register(\"child__child\",body_0);function body_0(chk,ctx)" +
             "{return chk.write(\"<div><p>Duster</p></div>\");}return body_0;})();\n" +
             "(function(){dust.register(\"root\",body_0);function body_0(chk,ctx)" +
             "{return chk.write(\"<div><div><p>Test template for the dust compiler!</p><p>Hello \")" +

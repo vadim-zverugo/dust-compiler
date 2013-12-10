@@ -30,6 +30,7 @@ Options
 * `logger` (optional, defaults to `console`):
 * `syncCompilation` (optional, defaults to `false`):
 * `preProcessors` (optional, defaults to `[]`):
+* `postProcessors` (optional, defaults to `[]`):
 * `watchFiles` (optional, defaults to `true`):
 * `subDirSeparator` (optional, defaults to `__`):
 * `compileAll` (optional, defaults to `false`):

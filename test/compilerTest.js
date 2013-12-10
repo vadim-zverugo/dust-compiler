@@ -49,6 +49,38 @@ module.exports = {
         test.done();
     },
 
+    testCompilerPostProcessors: function (test) {
+        dustCompiler.init({
+            sourceDir: '/views',
+            compiledDir: '/compiled',
+            syncCompilation: true,
+            watchFiles: false,
+            postProcessors: [
+                function(compiled) {
+                    var nestedPartials = compiled.match(/\.partial\(".+?"/g) || [];
+                    for (var i = 0; i < nestedPartials.length; i++) {
+                        var nestedPartialPath = nestedPartials[i]
+                            .replace(/\.partial\("/, '')
+                            .replace(/"/, '');
+                        var nestedPartialId = nestedPartialPath
+                            .replace(/.*\.\//, '')
+                            .replace(/\//g, '__');
+                        compiled = compiled.replace(new RegExp(nestedPartialPath, 'g'), nestedPartialId);
+                    }
+                    return compiled;
+                }
+            ]
+        });
+
+        var rootContent = fs.readFileSync(path.join(cwd, 'compiled', 'root.js'));
+        test.equal(rootContent, "(function(){dust.register(\"root\",body_0);function body_0(chk,ctx)" +
+            "{return chk.write(\"<div><div><p>Test template for the dust compiler!</p><p>Hello \")" +
+            ".reference(ctx._get(false, [\"username\"]),ctx,\"h\").write(\"</p></div><div>\")" +
+            ".partial(\"child__child.dust\",ctx,null).write(\"</div></div>\");}return body_0;})();");
+
+        test.done();
+    },
+
     testCompilerSubDirSeparator: function(test) {
         dustCompiler.init({
             sourceDir: '/views',

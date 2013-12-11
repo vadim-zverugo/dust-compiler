@@ -1,6 +1,6 @@
 {
     "name": "dust-compiler",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Node.js module for compiling dust templates.",
     "license": "MIT",
     "author": {
